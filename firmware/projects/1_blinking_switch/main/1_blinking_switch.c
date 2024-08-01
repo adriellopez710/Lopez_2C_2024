@@ -23,7 +23,9 @@
 #include "led.h"
 #include "switch.h"
 /*==================[macros and definitions]=================================*/
-#define CONFIG_BLINK_PERIOD 1000
+#define CONFIG_BLINK_PERIOD1 1000 // periodos de parpadeo para cada led
+#define CONFIG_BLINK_PERIOD2 500
+#define CONFIG_BLINK_PERIOD3 10
 /*==================[internal data definition]===============================*/
 
 /*==================[internal functions declaration]=========================*/
@@ -38,12 +40,20 @@ void app_main(void){
     	switch(teclas){
     		case SWITCH_1:
     			LedToggle(LED_1);
+				vTaskDelay(CONFIG_BLINK_PERIOD1 / portTICK_PERIOD_MS);
     		break;
     		case SWITCH_2:
     			LedToggle(LED_2);
+				vTaskDelay(CONFIG_BLINK_PERIOD2 / portTICK_PERIOD_MS);
     		break;
+			case SWITCH_1 | SWITCH_2:
+    			LedToggle(LED_3);
+				vTaskDelay(CONFIG_BLINK_PERIOD3 / portTICK_PERIOD_MS);
+    		break;
+
+			LedOff(LED_1 & LED_2 & LED_3); // apagar todos los led cuando ninguna tecla este apretada
+
     	}
-	    LedToggle(LED_3);
-		vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
+
 	}
 }
