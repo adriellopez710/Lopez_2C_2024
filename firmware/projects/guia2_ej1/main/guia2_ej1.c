@@ -2,16 +2,28 @@
  * @file guia2_ej1.c
  * @brief Código para la actividad 1 del proyecto 2.
  *
- * En este proyecto, se utiliza un sensor de ultrasonido HC-SR04 para medir la distancia a un objeto.
- * La distancia se muestra en un display LCD y se usa para controlar LEDs. Las teclas permiten encender/apagar 
- * el sistema y pausar la medición.
+ * Actividad 1: Diseñar el firmware modelando con un diagrama de flujo de manera que cumpla con las siguientes funcionalidades:
+ *
+ * Mostrar distancia medida utilizando los leds de la siguiente manera:
+ *
+ * Si la distancia es menor a 10 cm, apagar todos los LEDs.
+ * Si la distancia está entre 10 y 20 cm, encender el LED_1.
+ * Si la distancia está entre 20 y 30 cm, encender el LED_2 y LED_1.
+ * Si la distancia es mayor a 30 cm, encender el LED_3, LED_2 y LED_1.
+ *
+ * Mostrar el valor de distancia en cm utilizando el display LCD.
+ * Usar TEC1 para activar y detener la medición.
+ * Usar TEC2 para mantener el resultado (“HOLD”).
+ * Refresco de medición: 1 s
+ *
  */
 
 /** 
  * @mainpage Medición de Distancia con Sensor HC-SR04
  * @section desc Descripción General
  * 
- * Este proyecto mide la distancia usando un sensor ultrasónico y muestra el resultado en LEDs y un LCD. Las teclas controlan el encendido y la pausa.
+ * Este proyecto mide la distancia usando un sensor ultrasónico y muestra el resultado en LEDs y un LCD. 
+ * Las teclas controlan el encendido y la pausa.
  * 
  * @section changelog Historial de Cambios
  * | Fecha       | Descripción                                    |
