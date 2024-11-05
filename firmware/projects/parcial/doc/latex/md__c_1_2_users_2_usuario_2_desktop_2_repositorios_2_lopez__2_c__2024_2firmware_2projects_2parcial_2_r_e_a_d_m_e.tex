@@ -1,0 +1,54 @@
+\chapter{Ejemplo Bluetooth -\/ Filtros}
+\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_repositorios_2_lopez__2_c__2024_2firmware_2projects_2parcial_2_r_e_a_d_m_e}{}\label{md__c_1_2_users_2_usuario_2_desktop_2_repositorios_2_lopez__2_c__2024_2firmware_2projects_2parcial_2_r_e_a_d_m_e}\index{Ejemplo Bluetooth -\/ Filtros@{Ejemplo Bluetooth -\/ Filtros}}
+\label{md__c_1_2_users_2_usuario_2_desktop_2_repositorios_2_lopez__2_c__2024_2firmware_2projects_2parcial_2_r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_repositorios_2_lopez__2_c__2024_2firmware_2projects_2parcial_2_r_e_a_d_m_e_autotoc_md0}%
+ Este proyecto ejemplifica el uso del módulo de comunicación Bluetooth Low Energy (BLE), junto con el de filtrado de una señal. Permite graficar en una aplicación móvil la una señal temporal y activar y desactivar el filtrado (pasabanda) de la misma.\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_repositorios_2_lopez__2_c__2024_2firmware_2projects_2parcial_2_r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Cómo usar el ejemplo}{Cómo usar el ejemplo}}\label{md__c_1_2_users_2_usuario_2_desktop_2_repositorios_2_lopez__2_c__2024_2firmware_2projects_2parcial_2_r_e_a_d_m_e_autotoc_md1}
+\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_repositorios_2_lopez__2_c__2024_2firmware_2projects_2parcial_2_r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{\texorpdfstring{Hardware requerido}{Hardware requerido}}\label{md__c_1_2_users_2_usuario_2_desktop_2_repositorios_2_lopez__2_c__2024_2firmware_2projects_2parcial_2_r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item ESP-\/\+EDU
+\item Dispositivo Android
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_repositorios_2_lopez__2_c__2024_2firmware_2projects_2parcial_2_r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{\texorpdfstring{Configurar el proyecto}{Configurar el proyecto}}\label{md__c_1_2_users_2_usuario_2_desktop_2_repositorios_2_lopez__2_c__2024_2firmware_2projects_2parcial_2_r_e_a_d_m_e_autotoc_md3}
+Para poder utilizar las funcionalidades de BLE en el ESP32, en primer lugar es necesario habilitar dicho módulo en el {\ttfamily sdkconfig}. Para ello puede copiar el {\ttfamily sdkconfig} de este proyecto (que ya se encuentra modificado) o modificar el propio\+:
+
+
+\begin{DoxyEnumerate}
+\item Abrir {\ttfamily ESP-\/\+IDF\+: SDK Configuration Editor}\+: 
+\item Buscar "{}\+Bluettoth"{} y habilitar la casilla {\ttfamily Bluetooth}
+\item Buscar "{}4.\+2"{} y habilitar la casilla {\ttfamily Enable BLE 4.\+2 features}
+\end{DoxyEnumerate}
+
+Paso seguido debe modificar el {\ttfamily CMake\+Lists} de la carpeta {\ttfamily drivers}, descomentando la línea\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#"{}microcontroller/src/ble\_mcu.c"{}}
+
+\end{DoxyCode}
+
+
+Para utilizar las funcionalidades de DSP es necesario agregar la capa middelware al proyecto, modificando el archivo CMake\+Lists.\+txt (ubicado en la raiz del proyecto) con el siguiente contenido\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ cmake\_minimum\_required(VERSION\ 3.16)}
+\DoxyCodeLine{}
+\DoxyCodeLine{list(APPEND\ EXTRA\_COMPONENT\_DIRS\ "{}../../drivers"{})}
+\DoxyCodeLine{list(APPEND\ EXTRA\_COMPONENT\_DIRS\ "{}../../middelware"{})}
+\DoxyCodeLine{}
+\DoxyCodeLine{include\_directories(\$\{PROJECT\_NAME\}\ ../../drivers)}
+\DoxyCodeLine{include\_directories(\$\{PROJECT\_NAME\}\ ../../middelware)}
+\DoxyCodeLine{include(\$ENV\{IDF\_PATH\}/tools/cmake/project.cmake)}
+\DoxyCodeLine{project(ej\_dsp)}
+
+\end{DoxyCode}
+
+
+En este proyecto ya se han realizado estas modificaciones, por lo tanto no es necesaria ninguna acción extra para probarlo.\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_repositorios_2_lopez__2_c__2024_2firmware_2projects_2parcial_2_r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Ejecutar la aplicación}{Ejecutar la aplicación}}\label{md__c_1_2_users_2_usuario_2_desktop_2_repositorios_2_lopez__2_c__2024_2firmware_2projects_2parcial_2_r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyEnumerate}
+\item Instalar y ejecutar en el dispositivo Android la aplicación \href{https://play.google.com/store/apps/details?id=com.keuwl.arduinobluetooth}{\texttt{ Bluetooth Electronics}}
+\item Presionando en el botón {\ttfamily Connect}, vincular el móvil con la placa (se mostrará con el nombre {\ttfamily ESP\+\_\+\+EDU\+\_\+1})
+\item Crear un nuevo Panel que contenga un Gráfico "{}\+Roll"{} (menú {\ttfamily Graphs}) y un switch (menú {\ttfamily Switches}) que envíe una "{}\+A"{} cuando esté en "{}\+ON"{} y una "{}a"{} cuando esté en "{}\+OFF"{}. 
+\item Ejecutar este panel. Verá la grafica de un ECG (con continua y ruido). Activar el filtro, y ahora la salida corresponderá a la señal filtrada (sin continua y con menos ruido).  
+\end{DoxyEnumerate}
