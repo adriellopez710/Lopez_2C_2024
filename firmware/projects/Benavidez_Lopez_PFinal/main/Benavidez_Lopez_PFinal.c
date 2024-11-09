@@ -51,7 +51,7 @@
 
 /*==================[internal data definition]===============================*/
 bool boton = false;            // Controla el estado del boton (c minuscula = false = apagado)
-float umbral = 1.8;            // Umbral de medicion
+float umbral = 1.80;            // Umbral de medicion
 float modulo = 0;              // Modulo de la aceleracion con sus tres ejes
 /*==================[internal functions declaration]=========================*/
 void sensarAceleracion();
@@ -139,7 +139,7 @@ void app_main(void) {
 
     BleInit(&ble_configuration);
 
-    // Crear tarea de acelerómetro
+    // Creamos tarea de acelerómetro 
     xTaskCreate(&acc_task, "ACC Task", 4096, NULL, 5, NULL);
 }
 
