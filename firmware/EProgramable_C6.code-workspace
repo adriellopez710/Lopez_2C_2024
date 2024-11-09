@@ -4,25 +4,37 @@
             "path": "./drivers"
         },
         {
-            "path": "./projects/0_blinking"
+            "path": "./middelware"
         },
         {
-            "path": "./projects/1_blinking_switch"
+            "path": "examples/ej_dsp"
         },
         {
-            "path": "projects/2_blinking_tasks"
+            "path": "examples/ej_bluetooth_ledrgb"
         },
         {
-            "path": "projects/3_blinking_timer"
+            "path": "examples/ej_bluetooth_fft"
         },
         {
-            "path": "./projects/x_template"
+            "path": "examples/ej_bluetooth_filter"
         },
         {
-            "path": "projects/guia1_ej2"
+            "path": "examples/ej_lcdcolor_ecg"
         },
         {
-            "path": "projects/guia1_ej3"
+            "path": "examples/ej_lcdcolor_audioplayer"
+        },
+        {
+            "path": "examples/ej_bluetooth_mouse_kb"
+        },
+        {
+            "path": "examples/ej_max3010x"
+        },
+        {
+            "path": "examples/ej_mfrc522"
+        },
+        {
+            "path": "projects/Benavidez_Lopez_PFinal"
         }
     ],
     "settings": {
@@ -77,7 +89,14 @@
             "ili9341.h": "c",
             "soc_caps.h": "c",
             "mpu6050.h": "c",
-            "i2c_mcu.h": "c"
+            "i2c_mcu.h": "c",
+            "string.h": "c",
+            "fonts.h": "c",
+            "time.h": "c",
+            "vumeter.h": "c",
+            "rtc_mcu.h": "c",
+            "fft.h": "c",
+            "i2c.h": "c"
         },
     },
     "tasks": {

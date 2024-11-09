@@ -1,32 +1,27 @@
 
 ![Scheme|30%](fiuner.png)
-
 # Cátedra: Electrónica Programable
 
-En este Repositorio se almacena el Firmware que se utilizará de base durante el cursado de la asignatura Electrónica Programable,
-correspondiente a la carrera de Bioingeniería de la FIUNER.
-El mismo está pensado para ser utilizado con la placa ESP-EDU, una placa diseñada por la cátedra basada en el módulo ESP32-C6-DevKitC-1.
+En este Repositorio se almacenan programas que ejemplifican el uso de distintos módulos y drivers creados por la cátedra para el manejo de periféricos del microcontrolador y dispositivos externos.
+Los mismos están pensado para ser utilizados con la placa ESP-EDU, una placa diseñada por la cátedra basada en el módulo ESP32-C6-DevKitC-1.
 
-## Primeros pasos
+## Ejemplos
 
-1. [Instalación](./documentación/instalación.md)
-2. [Creación de Repositorio](./documentación/repositorio.md)
-3. [Compilación](./documentación/compilación.md)
-4. [Grabación y Depuración](./documentación/depuración.md)
-5. [Proyecto nuevo](./documentación/proyecto_nuevo.md)
-6. [Actualización de Repositorio](./documentación/repositorio2.md)
-7. [Detalles del Hardware](./documentación/hardware.md)
-
-## Enlaces de Interés
-
-* [Campus Virtual de la Cátedra](http://campus.ingenieria.uner.edu.ar/course/view.php?id=455)
-* [IDF API para ESP32-C6](https://docs.espressif.com/projects/esp-idf/en/stable/esp32c6/api-reference/index.html)
+* [DSP](./firmware/examples/ej_dsp/README.md)
+* [Bluetooth + LCD RGB](./firmware/examples/ej_bluetooth_ledrgb/README.md)
+* [Bluetooth + FFT](./firmware/examples/ej_bluetooth_fft/README.md)
+* [Bluetooth + Filtrado](./firmware/examples/ej_bluetooth_filter/README.md)
+* [Display LCD color: ECG](./firmware/examples/ej_lcdcolor_ecg/README.md)
+* [Display LCD color: Reproductor de audio](./firmware/examples/ej_lcdcolor_audioplayer/README.md)
+* [Mouse y Teclado Bluetooth](./firmware/examples/ej_bluetooth_mouse_kb/README.md)
+* [SPO2 + Frec. Card. (MAX3010X)](./firmware/examples/ej_max3010x/README.md)
+* [Lector RFID (MFRC522)](./firmware/examples/ej_mfrc522/README.md)
 
 ## Autores
 
-* Juan Manuel Reta (<juan.reta@uner.edu.ar>)
-* Eduardo Filomena (<eduardo.filomena@uner.edu.ar>)
-* Juan Ignacio Cerrudo (<juan.cerrudo@uner.edu.ar>)
-* Albano Peñalva (<albano.penalva@uner.edu.ar>)
-* Lucía Eletti (<lucia.eletti@uner.edu.ar>)
-* Diego Arévalo (<diego.arevalo@uner.edu.ar>)
+* Juan Manuel Reta (juan.reta@uner.edu.ar)
+* Eduardo Filomena (eduardo.filomena@uner.edu.ar)
+* Juan Ignacio Cerrudo (juan.cerrudo@uner.edu.ar)
+* Albano Peñalva (albano.penalva@uner.edu.ar)
+* Lucía Eletti (lucia.eletti@uner.edu.ar )
+* Diego Arévalo (diego.arevalo@uner.edu.ar)
